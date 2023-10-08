@@ -1,0 +1,770 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>abhishek-portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha384-zzFj0e8Xn7Cp6pQt6PE9rWUof1vvwv/nA5Xn5LbwzfpLg/PVI1+pDksw2PdjEJ1P" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Your+Font+Here&display=swap" rel="stylesheet">
+
+    <style>
+        /* Reset default margin and padding */
+        body, h1, h2, h3, p, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Global Styles */
+        body {
+            background-color: #121212; /* Dark background color */
+            color: #ffffff; /* White text color */
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #1e1e1e; /* Darker background color for the navbar */
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .nav-links li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #ffffff; /* White text color for links */
+        }
+
+
+        
+        /* About Section Styles */
+        .about {
+            background-color: #1e1e1e; /* Darker background color for sections */
+            padding: 60px 0;
+            text-align: center; /* Center align text in the about section */
+        }
+
+        .about-text {
+            max-width: 800px;
+            margin: 0 auto; /* Center align text within the container */
+        }
+
+        /* Projects Section Styles */
+        .projects {
+            background-color: #333333; /* Darker background color for projects */
+            padding: 80px 0; /* Increased padding for projects */
+            text-align: center;
+        }
+
+        .project-card {
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            display: flex;
+            margin: 0 auto 20px auto; /* Center the project card and add spacing below */
+            max-width: 800px; /* Limit the width of project cards */
+        }
+
+        .project-info {
+            flex: 1;
+            padding: 20px;
+            text-align: left; /* Align text to the left within the project info */
+        }
+
+        .project-info h3 {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-top: 0;
+        }
+
+        .project-info p {
+            color: #cccccc;
+        }
+
+        .project-image {
+            flex: 1; /* Make the image take up half the space */
+            padding: 20px;
+            text-align: center; /* Center align the image within its container */
+        }
+
+        .project-image img {
+            max-width: 100%; /* Make sure the image fits within its container */
+            border-radius: 10px; /* Add rounded corners to the image */
+        }
+
+        /* Contact Section Styles */
+        .contact {
+            background-color: #1e1e1e; /* Darker background color for sections */
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #1e1e1e;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        
+        
+        /* Styling for the skill names and icons */
+        .skills-icons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .skill {
+            margin: 20px;
+            text-align: center;
+            transition: transform 0.2s; /* Add a smooth transition effect */
+        }
+
+        .skill:hover {
+            transform: scale(1.5); /* Enlarge the icon on hover */
+        }
+
+        .skill i {
+            font-size: 4rem;
+            color: #fff; /* White icon color */
+            margin-bottom: 10px;
+            transition: color 0.2s; /* Add a smooth color transition effect */
+        }
+
+        .skill:hover i {
+            color: #0055ffc4; /* Change the icon color on hover */
+        }
+
+        .skill-name {
+            display: block;
+            font-size: 1.5rem;
+            color: #fff; /* White text color */
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* Styling for the skill heading */
+        .skills h2.section-title {
+            font-size: 2rem; /* Increase font size */
+            color: #fafafa; /* Set a custom color */
+            letter-spacing: 2px; /* Add letter spacing */
+            font-weight: bold; /* Make it bold */
+        }
+
+        /* Styling for contact icons and text */
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-icons a {
+            text-decoration: none;
+            color: #ffffff; /* White text color */
+            margin: 15px;
+            display: flex;
+            flex-direction: column;
+           
+
+ align-items: center;
+            transition: color 0.2s, transform 0.2s;
+        }
+
+        .contact-icons a:hover {
+            color: #0062ff; /* Change text color on hover */
+            transform: scale(1.1); /* Enlarge icon and text on hover */
+            animation: bounce 0.5s ease infinite; /* Add bounce animation */
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .contact-icons i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-icons span {
+            font-size: 1rem;
+        }
+
+        /* Reset the color change for the text when hovering over the entire element */
+        .contact-icons .animated-icon:hover span {
+            color: inherit; /* Inherit the text color from its parent */
+        }
+
+        /* Project card hover effect */
+        .project-card {
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
+            transition: transform 0.2s, box-shadow 0.2s; /* Add a smooth transition for transform and shadow */
+        }
+
+        .project-card:hover {
+            transform: scale(1.05); /* Enlarge the project card on hover */
+            box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+        }
+        /* Styles for the "About Me" section */
+.about {
+    background-color: #1e1e1e; /* Darker background color for sections */
+    padding: 60px 0;
+    text-align: center; /* Center align text in the about section */
+}
+
+.about .section-title {
+    color: #d7f3ef; /* Customize section title color */
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto; /* Center align text within the container */
+}
+
+.about-text {
+    font-size: 1.2rem; /* Adjust the font size */
+    line-height: 1.6; /* Adjust line height for readability */
+    margin-bottom: 20px; /* Add spacing between paragraphs */
+}
+.navbar {
+            background-color: #1e1e1e; /* Dark background color for the navbar */
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar.scroll {
+            background-color: rgba(30, 30, 30, 0.9); /* Semi-transparent background when scrolling */
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-links li {
+            margin-right: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #ffffff; /* White text color for links */
+            font-size: 18px;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #00aaff; /* Change text color on hover */
+        }
+
+        /* Add some responsive styles for smaller screens */
+        @media screen and (max-width: 768px) {
+            .navbar {
+                padding: 10px;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+        }
+
+
+        /* Add a fixed height to the hero section */
+.hero {
+    height: 5vh; /* Adjust the height as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+   
+    background-size: cover;
+    background-position: center;
+    animation: parallax 10s ease infinite; /* Parallax animation */
+}
+
+/* Gradient overlay */
+.hero-background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)); /* Adjust the gradient colors as needed */
+    z-index: 1;
+}
+
+/* Rest of your hero content styles */
+.hero-content {
+    text-align: center;
+    color: #ffffff; /* Text color */
+    z-index: 2;
+}
+
+.hero-text {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    background-image: linear-gradient(45deg, #ff00cc, #3333cc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: nameAnimation 3s infinite;
+}
+
+.hero-subtext {
+    font-size: 1.5rem;
+}
+
+
+/* Hero Section Styles */
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    text-align: center;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+   
+    background-size: cover;
+    background-position: center;
+    transform: translateZ(0);
+    transition: transform 0.3s ease;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Parallax Scroll Effect for Your Name */
+.parallax-name {
+    position: relative;
+    overflow: hidden;
+}
+
+.parallax-name::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(45deg, #ff00cc, #3333cc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: nameAnimation 3s infinite; /* Apply the same animation as before */
+    z-index: -1;
+}
+
+#animated-name {
+    position: relative;
+    z-index: 1;
+    color: #0062ff;
+}
+
+#scrolling-text {
+    position: fixed;
+    top: 50%; /* Initially centered vertically */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    pointer-events: none; /* To prevent it from blocking interactions */
+}
+/* Animation for the name */
+@keyframes nameAnimation {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(-10px);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+.hero-text {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    background-image: linear-gradient(45deg, #ff00cc, #3333cc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: nameAnimation 3s infinite;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header id="home" class="hero">
+        <div class="hero-background">
+           
+
+        </div>
+        <div class="container hero-content">
+            
+            <div id="scrolling-text">
+                <h1 class="hero-text"> <span id="typed-name"></span>
+                </h1>
+                
+                
+                <p class="hero-text"><span id="typed-role"></span></p>
+
+            </div>
+            
+            
+            
+        </div>
+    </header>
+    
+    
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p class="about-text">
+                    Hello! I'm Abhishek, a passionate and dedicated third-year B.Tech student with a strong enthusiasm for technology and programming. My journey so far has been a blend of curiosity-driven learning and hands-on projects.
+                </p>
+                <p class="about-text">
+                    I love to explore the latest web development trends and create interactive and user-friendly websites. In addition to my technical skills, I'm a creative thinker and a problem solver.
+                </p>
+                <p class="about-text">
+                    When I'm not coding, you can find me experimenting with new recipes in the kitchen or hiking in the great outdoors. I believe that continuous learning and exploration are key to personal and professional growth.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-icons">
+                <div class="skill">
+                    <i class="fa-brands fa-html5 fa-4x"></i>
+                    <span class="skill-name">HTML5</span>
+                </div>
+                <div class="skill">
+                    <i class="fa-brands fa-js fa-4x"></i>
+                    <span class="skill-name">JavaScript</span>
+                </div>
+                <div class="skill">
+                    <i class="fa-brands fa-css3-alt fa-4x"></i>
+                    <span class="skill-name">CSS3</span>
+                </div>
+                <div class="skill">
+                    <i class="fa-brands fa-node fa-4x"></i>
+                    <span class="skill-name">Node.js</span>
+                </div>
+                <div class="skill">
+                    <i class="fa-brands fa-python fa-4x"></i>
+                    <span class="skill-name">Python</span>
+                </div>
+                <div class="skill">
+                    <i class="fa-brands fa-c fa-4x"></i>
+                    <span class="skill-name">C</span>
+                </div>
+                <div class="skill">
+                    <i class="fa-brands fa-figma fa-4x"></i>
+                    <span class="skill-name">Figma</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Project 1</h3>
+                    <p>Description of Project 1.</p>
+                </div>
+                <div class="project-image">
+                    <img src="Energy.jpg" alt="Project 1 Image">
+                </div>
+            </div>
+            <!-- Add more project cards with images and descriptions here -->
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-icons">
+                <a href="https://github.com/yourusername" target="_blank" class="animated-icon">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://www.instagram.com/yourusername" target="_blank" class="animated-icon">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://www.linkedin.com/in/yourusername" target="_blank" class="animated-icon">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="tel:+1234567890" class="animated-icon">
+                    <i class="fas fa-phone"></i>
+                    <span>123-456-7890</span>
+                </a>
+                <a href="mailto:youremail@example.com" class="animated-icon">
+                    <i class="far fa-envelope"></i>
+                    <span>youremail@example.com</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Your Name</p>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/2d11520c08.js" crossorigin="anonymous"></script>
+    <script>
+           window.addEventListener("scroll", function () {
+            const navbar = document.querySelector(".navbar");
+            if (window.scrollY > 50) {
+                navbar.classList.add("scroll");
+            } else {
+                navbar.classList.remove("scroll");
+            }
+        });
+          // Get all the skill elements
+
+   // Get all the skill elements
+const skills = document.querySelectorAll('.skill');
+
+// Function to generate a random color
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+// Add a hover event listener to each skill
+skills.forEach(skill => {
+    skill.addEventListener('mouseenter', () => {
+        // Get the skill's icon element
+        const icon = skill.querySelector('i');
+
+        // Determine the color based on the skill
+        let color;
+        switch (skill.dataset.skill) {
+            case 'html':
+                color = '#e34c26'; // HTML color
+                break;
+            case 'js':
+                color = '#f0db4f'; // JavaScript color
+                break;
+            case 'css':
+                color = '#2965f1'; // CSS color
+                break;
+            case 'py':
+                color = '#fde57';  // Python color
+                break;
+            // Add more cases for other skills if needed
+            default:
+                color = getRandomColor(); // Random color for other skills
+        }
+
+        // Change the icon color to the determined color
+        icon.style.color = color;
+    });
+
+    // Reset the icon color on mouse leave
+    skill.addEventListener('mouseleave', () => {
+        // Retrieve the default color from the data-color attribute
+        const defaultColor = skill.getAttribute('data-color');
+
+        // Get the skill's icon element
+        const icon = skill.querySelector('i');
+
+        // Reset the icon color to the default color
+        icon.style.color = defaultColor;
+    });
+});
+
+
+
+// Add smooth scroll to navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href').substring(1);
+        const target = document.getElementById(targetId);
+
+        if (target) {
+            window.scrollTo({
+                top: target.offsetTop,
+                behavior: 'smooth', // Smooth scroll behavior
+            });
+        }
+    });
+});
+
+
+    window.addEventListener("scroll", function () {
+        const scrollingText = document.getElementById("scrolling-text");
+        const scrollY = window.scrollY;
+
+        // Define the top boundary of the "about" section
+        const aboutSectionTop = document.getElementById("about").offsetTop;
+
+        // Define the bottom boundary of the "about" section
+        const aboutSectionBottom = aboutSectionTop + document.getElementById("about").offsetHeight;
+
+        // Calculate the maximum scroll position to stop the text at the "about" section
+        const maxScrollPosition = aboutSectionTop - window.innerHeight / 2;
+
+        // Calculate the new position of the scrolling text
+        let newPosition = Math.min(maxScrollPosition, scrollY);
+
+        // If the scroll position is within the "about" section, set the text to fixed position
+        if (scrollY >= aboutSectionTop && scrollY <= aboutSectionBottom) {
+            scrollingText.style.position = 'fixed';
+            scrollingText.style.top = '50%';
+        } else {
+            scrollingText.style.position = 'relative';
+            scrollingText.style.top = '0';
+        }
+
+        // Adjust the position based on the maximum scroll position
+        scrollingText.style.transform = `translate(-50%, ${newPosition}px)`;
+    });
+
+
+
+// Define your name
+const name = "Hi, I'm Abhishek";
+
+// Get the element where you want to display the typed name
+const typedNameElement = document.getElementById("typed-name");
+
+// Function to simulate typing
+function typeWriter(text, element, delay = 100) {
+  let i = 0;
+
+  function type() {
+    if (i < text.length) {
+      element.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(type, delay);
+    }
+  }
+
+  // Start typing animation
+  type();
+}
+
+// Call the function to start typing your name
+typeWriter(name, typedNameElement);
+
+// Define the text to be typed
+const role = "Web Developer";
+
+// Get the element where you want to display the typed role
+const typedRoleElement = document.getElementById("typed-role");
+
+// Function to simulate typing
+function typeWriter(text, element, delay = 100) {
+  let i = 0;
+
+  function type() {
+    if (i < text.length) {
+      element.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(type, delay);
+    }
+  }
+
+  // Start typing animation
+  type();
+}
+
+// Call the function to start typing "Web Developer"
+typeWriter(role, typedRoleElement);
+
+  
+
+
+    </script>
+</body>
+</html>

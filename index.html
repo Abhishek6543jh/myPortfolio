@@ -9,8 +9,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha384-zzFj0e8Xn7Cp6pQt6PE9rWUof1vvwv/nA5Xn5LbwzfpLg/PVI1+pDksw2PdjEJ1P" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Your+Font+Here&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Playfair+Display&display=swap" rel="stylesheet">
 
     <style>
+        /* Add the fonts to your CSS */
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.about .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #d7f3ef;
+    margin-bottom: 20px;
+}
+
+/* Add the magnifier effect to the about-text paragraphs */
+.about-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    transition: transform 0.2s; /* Add a smooth transition effect */
+}
+
+.about-text:hover {
+    transform: scale(1.1); /* Enlarge the text on hover */
+}
+
         /* Reset default margin and padding */
         body, h1, h2, h3, p, ul, li {
             margin: 0;
@@ -447,14 +472,151 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    animation: nameAnimation 3s infinite;
+    animation: nameAnimation 3s ;
+}
+/* Add the following styles to create the dynamic circle */
+
+/* Define a class for the magnifying circle */
+/* Update the size and position of the magnifying circle */
+.magnifying-circle {
+    position: absolute;
+    width: 1000px; /* Adjust the size of the circle as needed */
+    height: 1000px; /* Adjust the size of the circle as needed */
+    border: 6px solid #00aaff; /* Circle border color */
+    border-radius: 50%; /* Create a circular shape */
+ 
+    transition: transform 0.2s; /* Add a smooth transition effect */
+    left: -9999px; /* Initially position it off-screen */
+    top: -9999px; /* Initially position it off-screen */
 }
 
+/* Update the hover effect for the text */
+.magnifier:hover .about-text {
+    transform: scale(1.1); /* Enlarge the text on hover */
+}
+.profile-container {
+    position: absolute;
+    top: 40%; /* Adjust the top position as needed */
+    left: -25%; /* Adjust the left position as needed */
+    transform: translate(-50%, -50%);
+    z-index: -5; /* Initially, the profile picture is above other content */
+    transition: z-index 0.8s ease; /* Add a smooth transition for the z-index property */
+}
+
+
+        /* Style for the profile picture */
+        .profile-pic {
+            width: 200px; /* Adjust the size of your profile picture */
+            height: 200px; /* Adjust the size of your profile picture */
+            border-radius: 50%; /* Make it a circle */
+            /* Add any other styles you want for your profile picture */
+        }
+
+        /* As you scroll down, change the z-index to move the profile picture behind */
+        .scroll .profile-container {
+            z-index: -6; /* Move the profile picture behind other content */
+        }
+        .about {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/* Style for the profile picture */
+.profile-pic {
+    width: 200px; /* Adjust the size of your profile picture */
+    height: 200px; /* Adjust the size of your profile picture */
+    border-radius: 50%; /* Make it a circle */
+    /* Add any other styles you want for your profile picture */
+}
+/* About Section Styles */
+.about {
+    background-image: url('/Abstract-3d-art-background.png'); /* Set your image as the background */
+    background-attachment: fixed; /* Fixed background */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative; /* Add position relative to create a stacking context */
+}
+
+.magnifying-circle {
+    position: absolute;
+    width: 1000px; /* Adjust the size of the circle as needed */
+    height: 1000px; /* Adjust the size of the circle as needed */
+    border: 6px solid #00aaff; /* Circle border color */
+    border-radius: 50%; /* Create a circular shape */
+    transition: transform 0.2s; /* Add a smooth transition effect */
+    left: -9999px; /* Initially position it off-screen */
+    top: -9999px; /* Initially position it off-screen */
+}
+
+.magnifier:hover .about-text {
+    transform: scale(1.1); /* Enlarge the text on hover */
+    z-index: 2; /* Ensure the text appears above the circle */
+}
+
+.about-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    position: relative; /* Add position relative to create a stacking context */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    padding: 20px; /* Add padding to create a space between text and background */
+    border-radius: 10px; /* Add rounded corners to the background */
+    color: #ffffff; /* White text color */
+}
+/* Initial state - hidden off-screen to the left */
+.roll-in {
+    transform: translateX(-100%);
+    transition: transform 0s; /* No initial transition */
+}
+
+/* Animated state - rolling in from the left */
+.roll-in.active {
+    transform: translateX(0);
+    transition: transform 1.0s ease; /* Add a smooth transition for the animation */
+}
+
+
+.floating-images {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Ensure the images appear above other content */
+}
+
+.floating-images img {
+    width: 45px; /* Adjust the image size as needed */
+    height: auto;
+    margin: 10px; /* Add some spacing between the images */
+}
 
 
     </style>
 </head>
 <body>
+    <div class="floating-images">
+        <img src="Abstract-3d-art-background.png" alt="Floating Image 1">
+        <img src="Abstract-3d-art-background.png" alt="Floating Image 2">
+        <img src="Abstract-3d-art-background.png" alt="Floating Image 1">
+        <img src="Abstract-3d-art-background.png" alt="Floating Image 2">
+        <img src="Abstract-3d-art-background.png" alt="Floating Image 1">
+        <img src="Abstract-3d-art-background.png" alt="Floating Image 2">
+        <img src="Abstract-3d-art-background.png" alt="Floating Image 1">
+        <img src="Abstract-3d-art-background.png" alt="Floating Image 2">
+
+      
+        <!-- Add more image elements as needed -->
+    </div>
+    
+    
     <nav class="navbar">
         <div class="container">
             <ul class="nav-links">
@@ -487,23 +649,25 @@
     </header>
     
     
-
-    <section id="about" class="about">
+    <section id="about" class="about" style="background-image: url('');">
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
-                <p class="about-text">
-                    Hello! I'm Abhishek, a passionate and dedicated third-year B.Tech student with a strong enthusiasm for technology and programming. My journey so far has been a blend of curiosity-driven learning and hands-on projects.
-                </p>
-                <p class="about-text">
-                    I love to explore the latest web development trends and create interactive and user-friendly websites. In addition to my technical skills, I'm a creative thinker and a problem solver.
-                </p>
-                <p class="about-text">
-                    When I'm not coding, you can find me experimenting with new recipes in the kitchen or hiking in the great outdoors. I believe that continuous learning and exploration are key to personal and professional growth.
-                </p>
+                <div class="magnifying-circle"></div>
+                <div class="magnifier">
+                    
+                    <p class="about-text">Hello! I'm Abhishek, a passionate and dedicated third-year B.Tech student with a strong enthusiasm for technology and programming.</p>
+                </div>
+                <!-- Add your profile picture here -->
+                <div class="profile-container">
+                    <img src="mypic.jpg" alt="Profile Picture" class="profile-pic roll-in">
+                </div>
+                
+                <!-- Add more paragraphs with the "magnifier" class as needed -->
             </div>
         </div>
     </section>
+    
     
     
     <section id="skills" class="skills">
@@ -548,40 +712,40 @@
             <h2 class="section-title">Projects</h2>
             <div class="project-card">
                 <div class="project-info">
-                    <h3>Project 1</h3>
-                    <p>Description of Project 1.</p>
+                    <h3>Social Media Insights Dashboard</h3>
+                    <br>
+                    <p>In this project, I have developed a robust Social Media Insights Dashboard using Node.js and integrated it with YouTube and Instagram through Python's InstaScraper. This dashboard provides users with a comprehensive view of their social media presence and engagement metrics, making it a valuable tool for content creators, influencers, and businesses looking to analyze their online performance.</p>
                 </div>
                 <div class="project-image">
-                    <img src="Energy.jpg" alt="Project 1 Image">
+                    <img src="project 1.png"Project 1 Image">
                 </div>
             </div>
+           
+            </div>
             <!-- Add more project cards with images and descriptions here -->
-        </div>
+        </>
     </section>
 
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Contact</h2>
             <div class="contact-icons">
-                <a href="https://github.com/yourusername" target="_blank" class="animated-icon">
+                <a href="https://github.com/Abhishek6543jh" target="_blank" class="animated-icon">
                     <i class="fab fa-github"></i>
                     <span>GitHub</span>
                 </a>
-                <a href="https://www.instagram.com/yourusername" target="_blank" class="animated-icon">
+                <a href="https://www.instagram.com/kalthireddy_abhishek_/" target="_blank" class="animated-icon">
                     <i class="fab fa-instagram"></i>
                     <span>Instagram</span>
                 </a>
-                <a href="https://www.linkedin.com/in/yourusername" target="_blank" class="animated-icon">
+                <a href="https://www.linkedin.com/in/kalthireddy-abhishek-31a34324a" target="_blank" class="animated-icon">
                     <i class="fab fa-linkedin"></i>
                     <span>LinkedIn</span>
                 </a>
-                <a href="tel:+1234567890" class="animated-icon">
-                    <i class="fas fa-phone"></i>
-                    <span>123-456-7890</span>
-                </a>
+               
                 <a href="mailto:youremail@example.com" class="animated-icon">
                     <i class="far fa-envelope"></i>
-                    <span>youremail@example.com</span>
+                    <span>kalthireddyabhishek24@gmail.com</span>
                 </a>
             </div>
         </div>
@@ -589,7 +753,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2023 Your Name</p>
+            <p>&copy; 2023 K.Abhishek</p>
         </div>
     </footer>
 
@@ -738,7 +902,7 @@ function typeWriter(text, element, delay = 100) {
 typeWriter(name, typedNameElement);
 
 // Define the text to be typed
-const role = "Web Developer";
+const role = "A Web Developer";
 
 // Get the element where you want to display the typed role
 const typedRoleElement = document.getElementById("typed-role");
@@ -762,9 +926,132 @@ function typeWriter(text, element, delay = 100) {
 // Call the function to start typing "Web Developer"
 typeWriter(role, typedRoleElement);
 
-  
+const magnifiers = document.querySelectorAll('.magnifier');
+
+magnifiers.forEach((magnifier) => {
+    magnifier.addEventListener('mousemove', (e) => {
+        const circle = magnifier.querySelector('.magnifying-circle');
+        const x = e.clientX - magnifier.getBoundingClientRect().left;
+        const y = e.clientY - magnifier.getBoundingClientRect().top;
+
+        // Position the circle at the mouse pointer
+        circle.style.left = `${x}px`;
+        circle.style.top = `${y}px`;
+
+        // Magnify the text within the circle
+        const scaleFactor = 1.5; // Adjust the magnification level as needed
+        magnifier.style.transform = `scale(${scaleFactor}) translate(-${x}px, -${y}px)`;
+    });
+
+    magnifier.addEventListener('mouseleave', () => {
+        const circle = magnifier.querySelector('.magnifying-circle');
+        // Reset the circle position and text scaling on mouse leave
+        circle.style.left = '-9999px';
+        circle.style.top = '-9999px';
+        magnifier.style.transform = 'scale(1) translate(0, 0)';
+    });
+});
+
+// JavaScript to control the profile picture visibility
+window.addEventListener("scroll", function () {
+    const aboutSection = document.getElementById("about");
+    const profileContainer = document.querySelector(".profile-container");
+
+    // Get the top position of the about section
+    const aboutSectionTop = aboutSection.offsetTop;
+
+    // Set the scroll position at which the profile picture should appear
+    const scrollPositionToShowProfile = aboutSectionTop - window.innerHeight / 2;
+
+    if (window.scrollY >= scrollPositionToShowProfile) {
+        // If scrolled to the specified position, bring the profile picture forward
+        profileContainer.style.zIndex = 1;
+    } else {
+        // If not scrolled to the specified position, move it behind other content
+        profileContainer.style.zIndex = -1;
+    }
+});
+window.addEventListener("scroll", function () {
+    const aboutSection = document.getElementById("about");
+    const profileContainer = document.querySelector(".profile-container");
+
+    // Get the top position of the about section
+    const aboutSectionTop = aboutSection.offsetTop;
+
+    // Set the scroll position at which the profile picture should appear
+    const scrollPositionToShowProfile = aboutSectionTop - window.innerHeight / 2;
+
+    if (window.scrollY >= scrollPositionToShowProfile) {
+        // If scrolled to the specified position, bring the profile picture forward
+        profileContainer.style.zIndex = 1;
+    } else {
+        // If not scrolled to the specified position, move it behind other content
+        profileContainer.style.zIndex = -5;
+    }
+});
+// JavaScript to control the profile picture visibility and animation
+window.addEventListener("scroll", function () {
+    const aboutSection = document.getElementById("about");
+    const profileContainer = document.querySelector(".profile-container");
+    const profilePic = document.querySelector(".profile-pic.roll-in");
+
+    // Get the top position of the about section
+    const aboutSectionTop = aboutSection.offsetTop;
+
+    // Set the scroll position at which the profile picture should appear
+    const scrollPositionToShowProfile = aboutSectionTop - window.innerHeight / 2;
+
+    if (window.scrollY >= scrollPositionToShowProfile) {
+        // If scrolled to the specified position, bring the profile picture forward and trigger animation
+        profileContainer.style.zIndex = 1;
+        profilePic.classList.add("active");
+    } else {
+        // If not scrolled to the specified position, move it behind other content and remove animation
+        profileContainer.style.zIndex = -5;
+        profilePic.classList.remove("active");
+    }
+});
+// JavaScript for parallax scrolling effect
+window.addEventListener("scroll", function () {
+    const scrollPosition = window.scrollY;
+    const floatingImages = document.querySelector(".floating-images");
+
+    // Adjust the speed of the images by changing the multiplier (smaller values make them move slower)
+    const parallaxSpeed = 0.3;
+
+    // Calculate the new position for the floating images
+    const translateY = scrollPosition * parallaxSpeed;
+
+    // Apply the translation to the images
+    floatingImages.style.transform = `translateY(${translateY}px)`;
+});
+
+// JavaScript for randomized parallax scrolling effect
+// JavaScript for randomized parallax scrolling effect
+// JavaScript for randomized fixed-position floating images
+window.addEventListener("load", function () {
+    const floatingImages = document.querySelector(".floating-images");
+    const images = Array.from(floatingImages.querySelectorAll("img"));
+
+    // Shuffle the order of the images randomly
+    for (let i = images.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [images[i], images[j]] = [images[j], images[i]];
+    }
+
+    // Add the shuffled images back to the container
+    images.forEach((img) => floatingImages.appendChild(img));
+
+    // Set initial random positions for the images
+    images.forEach((img) => {
+        const randomX = Math.random() * window.innerWidth;
+        const randomY = Math.random() * window.innerHeight;
+        img.style.transform = `translate(${randomX}px, ${randomY}px)`;
+    });
+});
 
 
+    
     </script>
 </body>
 </html>

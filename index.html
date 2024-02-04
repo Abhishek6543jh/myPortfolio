@@ -15,12 +15,14 @@
         /* Add the fonts to your CSS */
 body {
     font-family: 'Open Sans', sans-serif;
+   
+    
 }
 
 .about .section-title {
     font-family: 'Playfair Display', serif;
     font-size: 3rem;
-    color: #d7f3ef;
+    color: #1d9f8b;
     margin-bottom: 20px;
 }
 
@@ -343,6 +345,7 @@ body {
     justify-content: center;
     position: relative;
     overflow: hidden;
+    
 }
 
 .hero-background {
@@ -355,7 +358,7 @@ body {
    
     background-size: cover;
     background-position: center;
-    animation: parallax 10s ease infinite; /* Parallax animation */
+    background-image: url('bg.jpeg');
 }
 
 /* Gradient overlay */
@@ -531,13 +534,11 @@ body {
 }
 /* About Section Styles */
 .about {
-    background-image: url('/Abstract-3d-art-background.png'); /* Set your image as the background */
-    background-attachment: fixed; /* Fixed background */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+   
+  
     padding: 60px 0;
     text-align: center;
+    
 }
 
 .about-content {
@@ -1011,47 +1012,13 @@ window.addEventListener("scroll", function () {
         profilePic.classList.remove("active");
     }
 });
-// JavaScript for parallax scrolling effect
-window.addEventListener("scroll", function () {
-    const scrollPosition = window.scrollY;
-    const floatingImages = document.querySelector(".floating-images");
 
-    // Adjust the speed of the images by changing the multiplier (smaller values make them move slower)
-    const parallaxSpeed = 0.3;
-
-    // Calculate the new position for the floating images
-    const translateY = scrollPosition * parallaxSpeed;
-
-    // Apply the translation to the images
-    floatingImages.style.transform = `translateY(${translateY}px)`;
-});
-
-// JavaScript for randomized parallax scrolling effect
-// JavaScript for randomized parallax scrolling effect
-// JavaScript for randomized fixed-position floating images
-window.addEventListener("load", function () {
-    const floatingImages = document.querySelector(".floating-images");
-    const images = Array.from(floatingImages.querySelectorAll("img"));
-
-    // Shuffle the order of the images randomly
-    for (let i = images.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [images[i], images[j]] = [images[j], images[i]];
-    }
-
-    // Add the shuffled images back to the container
-    images.forEach((img) => floatingImages.appendChild(img));
-
-    // Set initial random positions for the images
-    images.forEach((img) => {
-        const randomX = Math.random() * window.innerWidth;
-        const randomY = Math.random() * window.innerHeight;
-        img.style.transform = `translate(${randomX}px, ${randomY}px)`;
-    });
-});
-
-
-    
+indow.addEventListener('scroll', function() {
+            let scrolled = window.scrollY;
+            let opacity = 1 - scrolled ; // Adjust the divisor for the scrolling speed
+            document.querySelector('.hero-background').style.opacity = opacity;
+        });
+  
     </script>
 </body>
 </html>

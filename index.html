@@ -1013,6 +1013,11 @@ window.addEventListener("scroll", function () {
     }
 });
 
+indow.addEventListener('scroll', function() {
+            let scrolled = window.scrollY;
+            let opacity = 1 - scrolled ; // Adjust the divisor for the scrolling speed
+            document.querySelector('.hero-background').style.opacity = opacity;
+        });
   
     </script>
 </body>
